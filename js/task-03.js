@@ -14,17 +14,15 @@ const images = [
 ];
 
 const gallery = document.querySelector('.gallery');
-// console.log(gallery)
 
 const markup = images.map(({url, alt}) => 
   `<li class="gallery-item">
-        <img src="${url}" alt="${alt}">
+        <img src="${url}" alt="${alt}" class="gallery-img" width='500px';>
       </li>`
-  // console.log(image)
 
 ).join("")
 
 gallery.insertAdjacentHTML("beforeend", markup)
 
-// gallery.append(markup)
+
 
