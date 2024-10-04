@@ -28,6 +28,8 @@ ul {
   padding-inline-start: 0px;
 }
 
+/* Task 3 */
+
 .gallery {
   display: flex;
   justify-content: space-between;
