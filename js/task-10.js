@@ -12,6 +12,9 @@ const refs = {
 }
 
 function createBoxes(amount) {
+  if (+amount > 100 || +amount < 0) {
+    return;
+  } 
 const elements = []
 let size = 30;
 for (let i = 1; i <= amount; i++) {
@@ -26,15 +29,19 @@ for (let i = 1; i <= amount; i++) {
 refs.boxes.append(...elements);
 }
 
- refs.btnCreate.addEventListener('click', ()=> {
-  const inputValue = Number(refs.input.value);
+ refs.btnCreate.addEventListener('click', onBtnCreate)
+
+function onBtnCreate() {
+const inputValue = Number(refs.input.value);
   createBoxes(inputValue);
+  refs.btnCreate.removeEventListener('click', onBtnCreate);
 }
-)
 
 function destroyBoxes() {
+  refs.btnCreate.addEventListener('click', onBtnCreate);
   refs.boxes.innerHTML = '';
-  refs.input.value = 0;
+  refs.input.value = '';
+  size = 30;
 }
 
 refs.btnDestroy.addEventListener('click', destroyBoxes)
